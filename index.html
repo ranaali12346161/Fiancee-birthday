@@ -4,205 +4,140 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #f3f2ee url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background: #fff7f0;
+      color: #333;
       overflow-x: hidden;
     }
-    .sparkles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.ibb.co/8YQy5gJ/sparkle.gif') repeat;
-      opacity: 0.3;
-      z-index: 0;
-    }
-    .roses {
-      position: fixed;
-      top: -100px;
-      width: 100px;
-      animation: fall 10s linear infinite;
-      z-index: 0;
-    }
-    .heart {
-      position: fixed;
-      top: -50px;
-      font-size: 2rem;
-      color: red;
-      animation: fall 8s linear infinite;
-      z-index: 0;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-100px) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(360deg); }
-    }
-    .container {
+    header {
       text-align: center;
-      padding: 50px 20px;
-      position: relative;
-      z-index: 1;
-    }
-    h1 {
-      color: #b38f00;
-      font-size: 3em;
-    }
-    .favorites, .duas, .wedding-date {
-      margin-top: 30px;
-      background: #fff6e6;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #ffe8a1;
-    }
-    .duas p {
-      font-style: italic;
-      color: #222;
-    }
-    .popup {
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fffbea;
-      padding: 30px;
-      border: 2px solid #b38f00;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #b38f00;
-      z-index: 10;
-      display: none;
-    }
-    .bismillah {
-      margin-top: 20px;
-      font-size: 1.5em;
-      color: #b38f00;
-      font-family: 'Amiri', serif;
-    }
-    .countdown {
-      font-size: 1.3em;
-      color: #555;
-      margin-top: 15px;
-    }
-    .button-container {
-      margin-top: 40px;
-    }
-    .celebrate-btn {
-      padding: 15px 25px;
-      background-color: #ff4081;
+      padding: 100px 20px 50px;
+      background: linear-gradient(to right, #ffafbd, #ffc3a0);
       color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .celebrate-btn:hover {
-      background-color: #e73370;
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      animation: fadeIn 3s ease;
+    }
+    header p {
+      font-size: 1.2em;
+      animation: fadeIn 4s ease;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      color: #ff7f7f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .duas {
+      font-style: italic;
+      background: #fff0f0;
+      padding: 15px;
+      border-left: 5px solid #ff7f7f;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      background: #fff0f5;
+      color: #555;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
-  <audio id="bg-music" autoplay loop>
-    <source src="https://cdn.islamic.network/audio/128/en.nasir.al.qatami/001.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <header>
+    <h1>Happy Birthday My Queen</h1>
+    <p>On this day, the world received its most beautiful soul.</p>
+  </header>
 
-  <div class="sparkles"></div>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 10%; animation-delay: 0s;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 50%; animation-delay: 3s;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 80%; animation-delay: 6s;">
+  <section>
+    <div class="section-title">Who You Are</div>
+    <div class="card">
+      <p>You are my light, my blessing, the answer to my prayers. Your presence is like a dua that Allah beautifully accepted for me. Your heart, your strength, and your kindness inspire me every single day.</p>
+    </div>
 
-  <div class="heart" style="left: 20%; animation-delay: 1s;">❤️</div>
-  <div class="heart" style="left: 40%; animation-delay: 2s;">💖</div>
-  <div class="heart" style="left: 70%; animation-delay: 4s;">💕</div>
+    <div class="section-title">Your Likes & Dislikes</div>
+    <div class="card">
+      <p><strong>Likes:</strong> Cats 🐱, Scented candles 🕯️, Soft shawls 🧣, Meaningful conversations 💬, Sweet surprises 🎁</p>
+      <p><strong>Dislikes:</strong> Bad tea ☕❌, Loud chaos 🚫, Disrespect 😡</p>
+    </div>
 
-  <div class="container">
-    <h1>Happy Birthday My Love ❤️</h1>
-    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
-    <p>You are the most beautiful part of my life. This is for you, my queen 👑</p>
+    <div class="section-title">Your Journey</div>
+    <div class="card">
+      <p>From dreams to milestones, from sleepless study nights to job achievements — you’ve risen with grace. You never stopped believing in your worth, and I never stopped being proud of you.</p>
+    </div>
 
-    <div class="favorites">
-      <h2>Your Favourite Things 💖</h2>
+    <div class="section-title">The Little Things I Love</div>
+    <div class="card">
       <ul>
-        <li>Red Roses 🌹</li>
-        <li>Chocolate Cake 🍫🎂</li>
-        <li>Long drives at sunset 🚗🌇</li>
-        <li>Poetry & Deep Talks 📖💬</li>
+        <li>The way you smile when you're shy 😊</li>
+        <li>Your sleepy voice 💭</li>
+        <li>The way you quietly pray 🤲</li>
+        <li>Your love for cozy corners 🧡</li>
+        <li>Your elegance when you talk ✨</li>
       </ul>
     </div>
 
-    <div class="wedding-date" id="marriage-date">
-      <h2>Our Special Day 💍</h2>
-      <p>We will start our forever journey on <strong>12th December 2025</strong>, InshaAllah 🕊️</p>
-      <div class="countdown" id="countdown"></div>
+    <div class="section-title">Our Moments</div>
+    <div class="card">
+      <p>[Add photos here if needed later] Every moment with you is a memory that glows in my heart. Whether it was laughing, sitting in silence, or dreaming aloud — it mattered because it was with you.</p>
     </div>
 
-    <div class="duas" id="duas">
-      <h2>Du'as from the Quran & Hadith 🕋</h2>
-      <p>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
-      <p><em>"Our Lord! Grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous." (Qur'an 25:74)</em></p>
-      <p>Prophet Muhammad ﷺ said: "The best among you are those who are best to their wives." (Tirmidhi)</p>
-      <p>اللَّهُمَّ اجْمَعْ بَيْنَنَا فِيمَا تُحِبُّ وَتَرْضَى وَبَارِكْ لَنَا وَعَلَيْنَا</p>
-      <p><em>"O Allah, unite us in what You love and bless us and upon us."</em></p>
+    <div class="section-title">A Letter for You</div>
+    <div class="card">
+      <p>Dear love,</p>
+      <p>I don’t know how to put into words what you mean to me. You’re not just my fiancée — you are my calm, my hope, my love, and my forever. I will keep choosing you, again and again, in this life and the next, InshaAllah.</p>
+      <p>Yours forever,<br/>Your future husband</p>
     </div>
 
-    <div class="button-container">
-      <button class="celebrate-btn" onclick="showPopup()">🎉 Click to Celebrate 🎉</button>
+    <div class="section-title">Duas For You</div>
+    <div class="card duas">
+      <p>اللهم اجعلها نورًا في دربي، وضياءً في حياتي</p>
+      <p>O Allah, make her a light in my path and a radiance in my life.</p>
+      <p>Ya Allah, bless her with peace, success, health, and a heart full of Imaan. Protect her from all harm and grant her Jannah.</p>
     </div>
-  </div>
 
-  <div class="popup" id="popup">
-    <h2>🎁 A Special Message 🎁</h2>
-    <p>You are the light of my life and the reason I smile every day. I can’t wait to start this beautiful journey with you. I love you more than words can say! 💘</p>
-  </div>
+    <div class="section-title">Our Nikah Date (InshaAllah)</div>
+    <div class="card">
+      <p>Coming soon... a day that will mark the beginning of our forever. I can't wait to call you my wife, bi'idhnillah.</p>
+    </div>
 
-  <script>
-    const music = document.getElementById('bg-music');
-    const marriage = document.getElementById('marriage-date');
-    const duas = document.getElementById('duas');
-    const popup = document.getElementById('popup');
+    <div class="section-title">Thank You</div>
+    <div class="card">
+      <p>Thank you for loving me, for seeing the best in me, for making my life brighter. I thank Allah every day for you. May we walk hand in hand in both this world and the next.</p>
+    </div>
+  </section>
 
-    function isInView(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top < window.innerHeight &&
-        rect.bottom >= 0
-      );
-    }
-
-    let popupShown = false;
-    function showPopup() {
-      if (!popupShown) {
-        popup.style.display = 'block';
-        popupShown = true;
-      }
-    }
-
-    window.addEventListener('scroll', () => {
-      if (isInView(marriage) || isInView(duas)) {
-        music.pause();
-      } else {
-        music.play().catch(() => {});
-      }
-    });
-
-    // Countdown to wedding date
-    const countdownEl = document.getElementById("countdown");
-    const weddingDate = new Date("2025-12-12T00:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      if (distance > 0) {
-        countdownEl.innerHTML = `⏳ ${days} days left until our big day!`;
-      } else {
-        countdownEl.innerHTML = `🎉 It's our wedding day! Alhamdulillah!`;
-      }
-    }, 1000);
-  </script>
+  <footer>
+    Made with endless love by your future husband ❤️ | Muhammad Ali
+  </footer>
 </body>
 </html>
