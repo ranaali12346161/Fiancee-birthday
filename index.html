@@ -12,6 +12,7 @@
       background: #fff7f0;
       color: #333;
       overflow-x: hidden;
+      position: relative;
     }
     header {
       text-align: center;
@@ -111,77 +112,71 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
+    /* Sparkle effect */
+    .sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .sparkles span {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px #ff8fa3;
+      animation: sparkle 3s linear infinite;
+    }
+    @keyframes sparkle {
+      0% {transform: translateY(0) scale(1); opacity: 1;}
+      100% {transform: translateY(100vh) scale(0.5); opacity: 0;}
+    }
+
+    /* Falling roses */
+    .rose {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Emoji_u1f339.svg/1024px-Emoji_u1f339.svg.png');
+      background-size: cover;
+      animation: fall 6s linear infinite;
+      z-index: 9998;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Happy Birthday My Queen</h1>
-    <p>On this day, the world received its most beautiful soul.</p>
-    <button class="scroll-btn" onclick="document.querySelector('section').scrollIntoView({ behavior: 'smooth' });">
-      Scroll down to see how much you mean to me…
-    </button>
-  </header>
+  <div class="sparkles"></div>
+  <script>
+    // Sparkle animation generator
+    const sparkleContainer = document.querySelector('.sparkles');
+    for (let i = 0; i < 50; i++) {
+      const sparkle = document.createElement('span');
+      sparkle.style.left = `${Math.random() * 100}%`;
+      sparkle.style.animationDelay = `${Math.random() * 5}s`;
+      sparkle.style.opacity = Math.random();
+      sparkleContainer.appendChild(sparkle);
+    }
 
-  <section>
-    <div class="section-title">Who You Are</div>
-    <div class="card">
-      <p>You are my light, my blessing, the answer to my prayers. Your presence is like a dua that Allah beautifully accepted for me. Your heart, your strength, and your kindness inspire me every single day.</p>
-    </div>
-
-    <div class="section-title">Your Likes & Dislikes</div>
-    <div class="card">
-      <p><strong>Likes:</strong> Cats 🐱, Scented candles 🕯️, Soft shawls 🧣, Meaningful conversations 💬, Sweet surprises 🎁</p>
-      <p><strong>Dislikes:</strong> Bad tea ☕❌, Loud chaos 🚫, Disrespect 😡</p>
-    </div>
-
-    <div class="section-title">Your Journey</div>
-    <div class="card">
-      <p>From dreams to milestones, from sleepless study nights to job achievements — you’ve risen with grace. You never stopped believing in your worth, and I never stopped being proud of you.</p>
-    </div>
-
-    <div class="section-title">The Little Things I Love</div>
-    <div class="card">
-      <ul>
-        <li>The way you smile when you're shy 😊</li>
-        <li>Your sleepy voice 💭</li>
-        <li>The way you quietly pray 🤲</li>
-        <li>Your love for cozy corners 🧡</li>
-        <li>Your elegance when you talk ✨</li>
-      </ul>
-    </div>
-
-    <div class="section-title">Our Moments</div>
-    <div class="card">
-      <p>[Add photos here if needed later] Every moment with you is a memory that glows in my heart. Whether it was laughing, sitting in silence, or dreaming aloud — it mattered because it was with you.</p>
-    </div>
-
-    <div class="section-title">A Letter for You</div>
-    <div class="card">
-      <p>Dear love,</p>
-      <p>I don’t know how to put into words what you mean to me. You’re not just my fiancée — you are my calm, my hope, my love, and my forever. I will keep choosing you, again and again, in this life and the next, InshaAllah.</p>
-      <p>Yours forever,<br/>Your future husband</p>
-    </div>
-
-    <div class="section-title">Duas For You</div>
-    <div class="card duas">
-      <p>اللهم اجعلها نورًا في دربي، وضياءً في حياتي</p>
-      <p>O Allah, make her a light in my path and a radiance in my life.</p>
-      <p>Ya Allah, bless her with peace, success, health, and a heart full of Imaan. Protect her from all harm and grant her Jannah.</p>
-    </div>
-
-    <div class="section-title">Our Nikah Date (InshaAllah)</div>
-    <div class="card">
-      <p>Coming soon... a day that will mark the beginning of our forever. I can't wait to call you my wife, bi'idhnillah.</p>
-    </div>
-
-    <div class="section-title">Thank You</div>
-    <div class="card">
-      <p>Thank you for loving me, for seeing the best in me, for making my life brighter. I thank Allah every day for you. May we walk hand in hand in both this world and the next.</p>
-    </div>
-  </section>
-
-  <footer>
-    Made with endless love by your future husband ❤️ | Muhammad Ali
-  </footer>
+    // Falling roses generator
+    setInterval(() => {
+      const rose = document.createElement('div');
+      rose.classList.add('rose');
+      rose.style.left = Math.random() * window.innerWidth + 'px';
+      rose.style.animationDuration = 5 + Math.random() * 5 + 's';
+      document.body.appendChild(rose);
+      setTimeout(() => rose.remove(), 10000);
+    }, 500);
+  </script>
 </body>
 </html>
