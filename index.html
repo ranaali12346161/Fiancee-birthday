@@ -7,9 +7,9 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffe6f0, #fff5f5);
-      color: #333;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+      color: #343a40;
       overflow-x: hidden;
     }
     .section {
@@ -17,16 +17,20 @@
       text-align: center;
     }
     h1, h2, h3 {
-      color: #b30059;
+      color: #6c757d;
     }
     .enter-btn, .btn {
-      background-color: #ff66a3;
+      background-color: #adb5bd;
       border: none;
       padding: 10px 20px;
       color: white;
       font-size: 18px;
       border-radius: 25px;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .enter-btn:hover, .btn:hover {
+      background-color: #868e96;
     }
     .carousel {
       display: flex;
@@ -47,21 +51,21 @@
       overflow-x: auto;
       gap: 20px;
       padding: 20px;
-      background: #fff0f5;
+      background: #f1f3f5;
     }
     .timeline div {
       min-width: 200px;
-      background: #fff;
+      background: #ffffff;
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     .cake {
       position: relative;
       margin: 0 auto;
       width: 100px;
       height: 100px;
-      background: #ffccff;
+      background: #ffe3ec;
       border-radius: 10px;
     }
     .candle {
@@ -70,12 +74,12 @@
       left: 45px;
       width: 10px;
       height: 30px;
-      background: #ff9966;
+      background: #f08080;
     }
     .flame {
       width: 10px;
       height: 10px;
-      background: yellow;
+      background: gold;
       border-radius: 50%;
       position: absolute;
       top: -10px;
@@ -89,6 +93,17 @@
     .countdown {
       font-size: 24px;
       margin-top: 10px;
+    }
+    .quote-section {
+      background: #dee2e6;
+      padding: 40px 20px;
+      font-style: italic;
+      color: #495057;
+    }
+    .surprise-section {
+      background: #f8f9fa;
+      padding: 40px 20px;
+      border-top: 1px solid #ced4da;
     }
   </style>
 </head>
@@ -139,6 +154,16 @@
     <div class="countdown" id="countdown"></div>
     <button class="btn" onclick="randomLoveMsg()">I can't wait!</button>
     <p id="randomMsg"></p>
+  </div>
+
+  <div class="quote-section">
+    "In your smile, I find peace. In your presence, I find home."
+  </div>
+
+  <div class="surprise-section">
+    <h2>A Tiny Surprise</h2>
+    <p>There’s a little video gift waiting for you 👉 <a href="#" style="color:#6f42c1">Click here</a></p>
+    <p>Or maybe a secret letter hidden somewhere… 👀</p>
   </div>
 
   <div class="section">
