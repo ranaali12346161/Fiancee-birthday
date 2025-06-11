@@ -2,173 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #ffdee9;
-      background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff5f5);
+      color: #333;
       overflow-x: hidden;
     }
-    h1, h2, p {
+    .section {
+      padding: 60px 20px;
       text-align: center;
-      color: #8b0000;
     }
-    .container {
-      max-width: 800px;
+    h1, h2, h3 {
+      color: #b30059;
+    }
+    .enter-btn, .btn {
+      background-color: #ff66a3;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 18px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+    }
+    .carousel img {
+      max-height: 250px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+    .timeline {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      background: #fff0f5;
+    }
+    .timeline div {
+      min-width: 200px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .cake {
+      position: relative;
       margin: 0 auto;
-      padding: 2rem;
+      width: 100px;
+      height: 100px;
+      background: #ffccff;
+      border-radius: 10px;
     }
-    .sparkle {
+    .candle {
       position: absolute;
+      top: -20px;
+      left: 45px;
+      width: 10px;
+      height: 30px;
+      background: #ff9966;
+    }
+    .flame {
       width: 10px;
       height: 10px;
-      background: gold;
+      background: yellow;
       border-radius: 50%;
-      animation: sparkle 3s linear infinite;
-    }
-    @keyframes sparkle {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-    .rose {
       position: absolute;
-      font-size: 2rem;
-      animation: fall 5s linear infinite;
+      top: -10px;
+      left: 0;
+      animation: flicker 1s infinite;
     }
-    @keyframes fall {
-      0% { transform: translateY(-100px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
-    .favorites, .duas, .marriage-date {
-      margin-top: 3rem;
-      background: #fff0f5;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    .favorites ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1.2rem;
-    }
-    .favorites li {
-      margin: 0.5rem 0;
-    }
-    .duas p {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    .duas .source {
-      font-size: 0.9rem;
-      color: #555;
-      text-align: right;
-    }
-    .note {
-      margin-top: 3rem;
-      background-color: #e0ffff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .note p {
-      font-size: 1.1rem;
-      color: #333;
-      text-align: center;
-    }
-    /* Music Button */
-    .music-toggle {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 2rem;
-      padding: 0.6rem 0.8rem;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-    .music-toggle.playing {
-      background-color: #ff1493;
+    .countdown {
+      font-size: 24px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <audio id="bg-music" src="birthday-music.mp3" autoplay loop></audio>
+  <div class="section" id="welcome">
+    <h1>Happy Birthday to the Love of My Life 💕</h1>
+    <button class="enter-btn" onclick="scrollToSection('memories')">Enter the Magic</button>
+  </div>
 
-  <div class="container">
-    <h1>🎉 Happy Birthday My Love 🎂</h1>
-    <p>May your day be filled with joy, laughter, and endless blessings.</p>
-
-    <div class="marriage-date">
-      <h2>💍 Our Marriage Date</h2>
-      <p>InshaAllah, we will be together forever starting from <strong>15th December 2025</strong>.</p>
-    </div>
-
-    <div class="favorites">
-      <h2>🌟 Your Favorite Things</h2>
-      <ul>
-        <li>🌹 Roses</li>
-        <li>🧁 Almond Cake</li>
-        <li>🎨 Pastel Colors</li>
-        <li>📸 Taking Cute Pictures</li>
-        <li>🐱 Cats</li>
-        <li>💖 Romantic Surprises</li>
-        <li>🌙 Stargazing</li>
-      </ul>
-    </div>
-
-    <div class="duas">
-      <h2>🤲 Du'as for You</h2>
-      <p>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
-      <p class="source">— Surah Al-Furqan (25:74)</p>
-      <p>"May Allah bless you, and send blessings upon you, and bring you together in goodness."</p>
-      <p class="source">— Hadith from Abu Dawood</p>
-    </div>
-
-    <div class="note">
-      <p>This surprise website is only for your eyes, my queen. It’s a token of my love, appreciation, and endless prayers for you. 🎁❤️</p>
+  <div class="section" id="memories">
+    <h2>Our Beautiful Memories</h2>
+    <div class="carousel">
+      <img src="https://via.placeholder.com/200x250?text=Us1" alt="Memory 1">
+      <img src="https://via.placeholder.com/200x250?text=Us2" alt="Memory 2">
+      <img src="https://via.placeholder.com/200x250?text=Us3" alt="Memory 3">
     </div>
   </div>
 
-  <button class="music-toggle playing" onclick="toggleMusic()">💖</button>
+  <div class="section">
+    <h2>A Letter from My Heart</h2>
+    <p id="typedText"></p>
+  </div>
 
-  <!-- Sparkles and Roses -->
+  <div class="section">
+    <h2>Blow the Candle 🎂</h2>
+    <div class="cake">
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
+    </div>
+    <button class="btn" onclick="blowCandle()">Blow Candle</button>
+    <p id="wishMessage"></p>
+  </div>
+
+  <div class="section">
+    <h2>Our Journey</h2>
+    <div class="timeline">
+      <div>First Message 💬</div>
+      <div>First Meeting 😊</div>
+      <div>Fell in Love 💘</div>
+      <div>Proposal 💍</div>
+      <div>Next: Our Wedding! 🕌</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Countdown to Our Forever</h2>
+    <div class="countdown" id="countdown"></div>
+    <button class="btn" onclick="randomLoveMsg()">I can't wait!</button>
+    <p id="randomMsg"></p>
+  </div>
+
+  <div class="section">
+    <h2>A Du'a from My Heart</h2>
+    <blockquote>
+      <p><em>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا قُرَّةَ أَعْيُنٍ</em></p>
+      <p><small>"Our Lord, grant us from among our spouses comfort to our eyes…" (Qur'an 25:74)</small></p>
+    </blockquote>
+    <p>I prayed for love, and Allah gave me you. May He protect you, bless you, and keep us together in His mercy. Ameen.</p>
+  </div>
+
+  <div class="section">
+    <h2>Forever Yours 💖</h2>
+    <p>This little page can't contain all my love for you... but it's a start.</p>
+    <button class="btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Replay the Magic</button>
+  </div>
+
   <script>
-    for (let i = 0; i < 50; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.style.left = Math.random() * 100 + 'vw';
-      sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      document.body.appendChild(sparkle);
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    for (let i = 0; i < 30; i++) {
-      const rose = document.createElement('div');
-      rose.className = 'rose';
-      rose.textContent = '🌹';
-      rose.style.left = Math.random() * 100 + 'vw';
-      rose.style.animationDuration = (Math.random() * 4 + 3) + 's';
-      document.body.appendChild(rose);
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById('bg-music');
-      const button = document.querySelector('.music-toggle');
-      if (music.paused) {
-        music.play();
-        button.classList.add('playing');
-      } else {
-        music.pause();
-        button.classList.remove('playing');
+    const letter = "I’m not perfect, but for you, I try to be better every day. You’ve made me believe in love, dreams, and forever. This birthday, I want you to know that you’re not just my fiancée — you’re my du’a come true.";
+    let idx = 0;
+    function typeLetter() {
+      if (idx < letter.length) {
+        document.getElementById("typedText").innerHTML += letter.charAt(idx);
+        idx++;
+        setTimeout(typeLetter, 50);
       }
+    }
+    typeLetter();
+
+    function blowCandle() {
+      const flame = document.getElementById("flame");
+      flame.style.display = 'none';
+      document.getElementById("wishMessage").innerText = "May every wish you made just now come true. One of mine already did – you.";
+    }
+
+    const weddingDate = new Date("2025-12-25T00:00:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("countdown").innerText = `${days} days, ${hours} hours, ${mins} mins`;
+    }
+    setInterval(updateCountdown, 1000);
+
+    function randomLoveMsg() {
+      const msgs = [
+        "I’m already yours.",
+        "Forever is waiting.",
+        "I want to grow old with you.",
+        "My heart beats your name every second."
+      ];
+      const pick = msgs[Math.floor(Math.random() * msgs.length)];
+      document.getElementById("randomMsg").innerText = pick;
     }
   </script>
 </body>
