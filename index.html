@@ -87,6 +87,22 @@
       color: #555;
       margin-top: 15px;
     }
+    .button-container {
+      margin-top: 40px;
+    }
+    .celebrate-btn {
+      padding: 15px 25px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .celebrate-btn:hover {
+      background-color: #e73370;
+    }
   </style>
 </head>
 <body>
@@ -94,7 +110,12 @@
     <source src="https://cdn.islamic.network/audio/128/en.nasir.al.qatami/001.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  
+
+  <div class="sparkles"></div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 10%; animation-delay: 0s;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 50%; animation-delay: 3s;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 80%; animation-delay: 6s;">
+
   <div class="heart" style="left: 20%; animation-delay: 1s;">❤️</div>
   <div class="heart" style="left: 40%; animation-delay: 2s;">💖</div>
   <div class="heart" style="left: 70%; animation-delay: 4s;">💕</div>
@@ -128,6 +149,10 @@
       <p>اللَّهُمَّ اجْمَعْ بَيْنَنَا فِيمَا تُحِبُّ وَتَرْضَى وَبَارِكْ لَنَا وَعَلَيْنَا</p>
       <p><em>"O Allah, unite us in what You love and bless us and upon us."</em></p>
     </div>
+
+    <div class="button-container">
+      <button class="celebrate-btn" onclick="showPopup()">🎉 Click to Celebrate 🎉</button>
+    </div>
   </div>
 
   <div class="popup" id="popup">
@@ -150,9 +175,12 @@
     }
 
     let popupShown = false;
-    setTimeout(() => {
-      popup.style.display = 'block';
-    }, 3000);
+    function showPopup() {
+      if (!popupShown) {
+        popup.style.display = 'block';
+        popupShown = true;
+      }
+    }
 
     window.addEventListener('scroll', () => {
       if (isInView(marriage) || isInView(duas)) {
