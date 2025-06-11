@@ -30,6 +30,14 @@
       animation: fall 10s linear infinite;
       z-index: 0;
     }
+    .heart {
+      position: fixed;
+      top: -50px;
+      font-size: 2rem;
+      color: red;
+      animation: fall 8s linear infinite;
+      z-index: 0;
+    }
     @keyframes fall {
       0% { transform: translateY(-100px) rotate(0deg); }
       100% { transform: translateY(100vh) rotate(360deg); }
@@ -55,6 +63,19 @@
       font-style: italic;
       color: #444;
     }
+    .popup {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f5;
+      padding: 30px;
+      border: 2px solid #d6336c;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #d6336c;
+      z-index: 10;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -65,9 +86,12 @@
 
   <div class="sparkles"></div>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 10%; animation-delay: 0s;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 50%; animation-delay: 3s;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 80%; animation-delay: 6s;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 50%; animation-delay: 3s;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Red_rose.png/240px-Red_rose.png" class="roses" style="left: 80%; animation-delay: 6s;">
 
+  <div class="heart" style="left: 20%; animation-delay: 1s;">❤️</div>
+  <div class="heart" style="left: 40%; animation-delay: 2s;">💖</div>
+  <div class="heart" style="left: 70%; animation-delay: 4s;">💕</div>
 
   <div class="container">
     <h1>Happy Birthday My Love ❤️</h1>
@@ -92,15 +116,21 @@
       <h2>Du'as from the Quran & Hadith 🕋</h2>
       <p>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
       <p><em>"Our Lord! Grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous." (Qur'an 25:74)</em></p>
-<comment> this is a comment</comment>
+
       <p>Prophet Muhammad ﷺ said: "The best among you are those who are best to their wives." (Tirmidhi)</p>
     </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <h2>🎁 A Special Message 🎁</h2>
+    <p>You are the light of my life and the reason I smile every day. I can’t wait to start this beautiful journey with you. I love you more than words can say! 💘</p>
   </div>
 
   <script>
     const music = document.getElementById('bg-music');
     const marriage = document.getElementById('marriage-date');
     const duas = document.getElementById('duas');
+    const popup = document.getElementById('popup');
 
     function isInView(element) {
       const rect = element.getBoundingClientRect();
@@ -109,6 +139,11 @@
         rect.bottom >= 0
       );
     }
+
+    let popupShown = false;
+    setTimeout(() => {
+      popup.style.display = 'block';
+    }, 3000);
 
     window.addEventListener('scroll', () => {
       if (isInView(marriage) || isInView(duas)) {
