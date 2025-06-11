@@ -1,182 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #fff7f0;
-      color: #333;
+      padding: 0;
+      background-color: #ffdee9;
+      background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
-      position: relative;
     }
-    header {
+    h1, h2, p {
       text-align: center;
-      padding: 100px 20px 50px;
-      background: linear-gradient(to right, #ffafbd, #ffc3a0);
-      color: white;
-      position: relative;
+      color: #8b0000;
     }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      margin-bottom: 0.2em;
-      animation: fadeInDown 2s ease forwards;
-    }
-    header p {
-      font-size: 1.2em;
-      animation: fadeIn 3s ease forwards;
-    }
-    .scroll-btn {
-      margin-top: 40px;
-      font-size: 1em;
-      background: white;
-      color: #ff7f7f;
-      padding: 12px 25px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-weight: bold;
-      animation: fadeInUp 3s ease forwards;
-      position: relative;
-    }
-    .scroll-btn::after {
-      content: "↓";
-      display: block;
-      font-size: 1.5em;
-      animation: bounce 2s infinite;
-    }
-    section {
-      padding: 60px 20px;
+    .container {
       max-width: 800px;
-      margin: auto;
-      animation: fadeIn 2s ease forwards;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    .section-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2em;
-      color: #ff7f7f;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s, opacity 0.6s;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-    }
-    .card:nth-child(even) {
-      animation-delay: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .duas {
-      font-style: italic;
-      background: #fff0f0;
-      padding: 15px;
-      border-left: 5px solid #ff7f7f;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      background: #fff0f5;
-      color: #555;
-      animation: fadeIn 2s ease forwards;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Sparkle effect */
-    .sparkles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    .sparkles span {
+    .sparkle {
       position: absolute;
-      display: block;
-      width: 6px;
-      height: 6px;
-      background: #fff;
+      width: 10px;
+      height: 10px;
+      background: gold;
       border-radius: 50%;
-      box-shadow: 0 0 10px #fff, 0 0 20px #ff8fa3;
       animation: sparkle 3s linear infinite;
     }
     @keyframes sparkle {
-      0% {transform: translateY(0) scale(1); opacity: 1;}
-      100% {transform: translateY(100vh) scale(0.5); opacity: 0;}
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
     }
-
-    /* Falling roses */
     .rose {
-      position: fixed;
-      top: -50px;
-      width: 30px;
-      height: 30px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Emoji_u1f339.svg/1024px-Emoji_u1f339.svg.png');
-      background-size: cover;
-      animation: fall 6s linear infinite;
-      z-index: 9998;
+      position: absolute;
+      font-size: 2rem;
+      animation: fall 5s linear infinite;
     }
     @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(360deg); }
+      0% { transform: translateY(-100px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    .favorites, .duas, .marriage-date {
+      margin-top: 3rem;
+      background: #fff0f5;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .favorites ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2rem;
+    }
+    .favorites li {
+      margin: 0.5rem 0;
+    }
+    .duas p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .duas .source {
+      font-size: 0.9rem;
+      color: #555;
+      text-align: right;
     }
   </style>
 </head>
 <body>
-  <div class="sparkles"></div>
+  <div class="container">
+    <h1>🎉 Happy Birthday My Love 🎂</h1>
+    <p>May your day be filled with joy, laughter, and endless blessings.</p>
+
+    <div class="marriage-date">
+      <h2>💍 Our Marriage Date</h2>
+      <p>InshaAllah, we will be together forever starting from <strong>15th December 2025</strong>.</p>
+    </div>
+
+    <div class="favorites">
+      <h2>🌟 Your Favorite Things</h2>
+      <ul>
+        <li>🌹 Roses</li>
+        <li>🧁 Almond Cake</li>
+        <li>🎨 Pastel Colors</li>
+        <li>📸 Taking Cute Pictures</li>
+        <li>🐱 Cats</li>
+        <li>💖 Romantic Surprises</li>
+        <li>🌙 Stargazing</li>
+      </ul>
+    </div>
+
+    <div class="duas">
+      <h2>🤲 Du'as for You</h2>
+      <p>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
+      <p class="source">— Surah Al-Furqan (25:74)</p>
+      <p>"May Allah bless you, and send blessings upon you, and bring you together in goodness."</p>
+      <p class="source">— Hadith from Abu Dawood</p>
+    </div>
+  </div>
+
+  <!-- Sparkles -->
   <script>
-    // Sparkle animation generator
-    const sparkleContainer = document.querySelector('.sparkles');
     for (let i = 0; i < 50; i++) {
-      const sparkle = document.createElement('span');
-      sparkle.style.left = `${Math.random() * 100}%`;
-      sparkle.style.animationDelay = `${Math.random() * 5}s`;
-      sparkle.style.opacity = Math.random();
-      sparkleContainer.appendChild(sparkle);
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(sparkle);
     }
 
-    // Falling roses generator
-    setInterval(() => {
+    for (let i = 0; i < 30; i++) {
       const rose = document.createElement('div');
-      rose.classList.add('rose');
-      rose.style.left = Math.random() * window.innerWidth + 'px';
-      rose.style.animationDuration = 5 + Math.random() * 5 + 's';
+      rose.className = 'rose';
+      rose.textContent = '🌹';
+      rose.style.left = Math.random() * 100 + 'vw';
+      rose.style.animationDuration = (Math.random() * 4 + 3) + 's';
       document.body.appendChild(rose);
-      setTimeout(() => rose.remove(), 10000);
-    }, 500);
+    }
   </script>
 </body>
 </html>
