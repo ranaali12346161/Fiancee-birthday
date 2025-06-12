@@ -4,245 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
-      color: #343a40;
-      overflow-x: hidden;
+    :root {
+      --rose-gold: #b76e79;
+      --blush-pink: #fadadd;
+      --ivory: #fdf8f5;
+      --text-dark: #3e3e3e;
+      --gold-glow: #ffe8b5;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background-color: var(--ivory);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
     .section {
-      padding: 60px 20px;
+      padding: 4rem 2rem;
       text-align: center;
     }
-    h1, h2, h3 {
-      color: #6c757d;
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--rose-gold);
     }
-    .enter-btn, .btn {
-      background-color: #adb5bd;
-      border: none;
-      padding: 10px 20px;
+
+    button {
+      background-color: var(--rose-gold);
       color: white;
-      font-size: 18px;
-      border-radius: 25px;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      margin-top: 2rem;
     }
-    .enter-btn:hover, .btn:hover {
-      background-color: #868e96;
+
+    button:hover {
+      box-shadow: 0 0 10px var(--rose-gold);
     }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px;
+
+    #welcome, #candle, #journey {
+      display: none;
     }
-    .carousel img {
-      max-height: 250px;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
+
+    .visible {
+      display: block;
     }
-    .carousel img:hover {
-      transform: scale(1.05);
-    }
-    .timeline {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 20px;
-      background: #f1f3f5;
-    }
-    .timeline div {
-      min-width: 200px;
-      background: #ffffff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .cake {
+
+    .candle-container {
       position: relative;
-      margin: 0 auto;
       width: 100px;
-      height: 100px;
-      background: #ffe3ec;
-      border-radius: 10px;
+      margin: 2rem auto;
     }
-    .candle {
-      position: absolute;
-      top: -20px;
-      left: 45px;
-      width: 10px;
-      height: 30px;
-      background: #f08080;
-    }
+
     .flame {
       width: 10px;
-      height: 10px;
-      background: gold;
+      height: 30px;
+      background: radial-gradient(ellipse at center, var(--gold-glow) 0%, orange 70%, transparent 100%);
+      margin: 0 auto;
+      animation: flicker 1s infinite alternate;
       border-radius: 50%;
-      position: absolute;
-      top: -10px;
-      left: 0;
-      animation: flicker 1s infinite;
     }
+
     @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .countdown {
-      font-size: 24px;
-      margin-top: 10px;
-    }
-    .quote-section {
-      background: #dee2e6;
-      padding: 40px 20px;
-      font-style: italic;
-      color: #495057;
-    }
-    .surprise-section {
-      background: #f8f9fa;
-      padding: 40px 20px;
-      border-top: 1px solid #ced4da;
+      0% { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(0.8); opacity: 0.6; }
     }
   </style>
 </head>
 <body>
-  <div class="section" id="welcome">
-    <h1>Happy Birthday to the Love of My Life 💕</h1>
-    <button class="enter-btn" onclick="scrollToSection('memories')">Enter the Magic</button>
-  </div>
+  <!-- Landing Page -->
+  <section id="landing" class="section">
+    <h1>Happy Birthday to the Light of My Life 💕</h1>
+    <p>Every day with you is a gift… but today is yours.</p>
+    <button onclick="startSurprise()">Click to Begin Your Birthday Surprise</button>
+  </section>
 
-  <div class="section" id="memories">
-    <h2>Our Beautiful Memories</h2>
-    <div class="carousel">
-      <img src="https://via.placeholder.com/200x250?text=Us1" alt="Memory 1">
-      <img src="https://via.placeholder.com/200x250?text=Us2" alt="Memory 2">
-      <img src="https://via.placeholder.com/200x250?text=Us3" alt="Memory 3">
+  <!-- Candle Page -->
+  <section id="candle" class="section">
+    <h2>Before anything else… make a wish and blow the candle 🎂</h2>
+    <div class="candle-container">
+      <div id="flame" class="flame"></div>
     </div>
-  </div>
+    <button onclick="blowCandle()">Blow Candle</button>
+  </section>
 
-  <div class="section">
-    <h2>A Letter from My Heart</h2>
-    <p id="typedText"></p>
-  </div>
-
-  <div class="section">
-    <h2>Blow the Candle 🎂</h2>
-    <div class="cake">
-      <div class="candle">
-        <div class="flame" id="flame"></div>
-      </div>
-    </div>
-    <button class="btn" onclick="blowCandle()">Blow Candle</button>
-    <p id="wishMessage"></p>
-  </div>
-
-  <div class="section">
-    <h2>Our Journey</h2>
-    <div class="timeline">
-      <div>First Message 💬</div>
-      <div>First Meeting 😊</div>
-      <div>Fell in Love 💘</div>
-      <div>Proposal 💍</div>
-      <div>Next: Our Wedding! 🕌</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Countdown to Our Forever</h2>
-    <div class="countdown" id="countdown"></div>
-    <button class="btn" onclick="randomLoveMsg()">I can't wait!</button>
-    <p id="randomMsg"></p>
-  </div>
-
-  <div class="quote-section">
-    "In your smile, I find peace. In your presence, I find home."
-  </div>
-
-  <div class="surprise-section">
-    <h2>A Tiny Surprise</h2>
-    <p>There’s a little video gift waiting for you 👉 <a href="#" style="color:#6f42c1">Click here</a></p>
-    <p>Or maybe a secret letter hidden somewhere… 👀</p>
-  </div>
-
-  <div class="section">
-    <h2>A Du'a from My Heart</h2>
-    <blockquote>
-      <p><em>رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا قُرَّةَ أَعْيُنٍ</em></p>
-      <p><small>"Our Lord, grant us from among our spouses comfort to our eyes…" (Qur'an 25:74)</small></p>
-    </blockquote>
-    <p>I prayed for love, and Allah gave me you. May He protect you, bless you, and keep us together in His mercy. Ameen.</p>
-  </div>
-
-  <div class="section">
-    <h2>Forever Yours 💖</h2>
-    <p>This little page can't contain all my love for you... but it's a start.</p>
-    <button class="btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Replay the Magic</button>
-  </div>
+  <!-- Journey Section -->
+  <section id="journey" class="section">
+    <h2>Our Journey – The Love Timeline</h2>
+    <p>This is where timeline content will appear. (Add cards/photos later)</p>
+  </section>
 
   <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
+    const landing = document.getElementById('landing');
+    const candle = document.getElementById('candle');
+    const flame = document.getElementById('flame');
+    const journey = document.getElementById('journey');
 
-    const letter = "I’m not perfect, but for you, I try to be better every day. You’ve made me believe in love, dreams, and forever. This birthday, I want you to know that you’re not just my fiancée — you’re my du’a come true.";
-    let idx = 0;
-    function typeLetter() {
-      if (idx < letter.length) {
-        document.getElementById("typedText").innerHTML += letter.charAt(idx);
-        idx++;
-        setTimeout(typeLetter, 50);
-      }
+    function startSurprise() {
+      landing.style.display = 'none';
+      candle.classList.add('visible');
     }
-    typeLetter();
 
     function blowCandle() {
-      const flame = document.getElementById("flame");
       flame.style.display = 'none';
-      document.getElementById("wishMessage").innerText = "May every wish you made just now come true. One of mine already did – you.";
-    }
-
-    const weddingDate = new Date("2025-11-02T00:00:00");
-
-function updateCountdown() {
-  const now = new Date();
-  let totalSeconds = Math.floor((weddingDate - now) / 1000);
-
-  if (totalSeconds < 0) {
-    document.getElementById("countdown").innerText = "The big day has arrived!";
-    return;
-  }
-
-  const months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
-  totalSeconds %= (30 * 24 * 60 * 60);
-
-  const days = Math.floor(totalSeconds / (24 * 60 * 60));
-  totalSeconds %= (24 * 60 * 60);
-
-  const hours = Math.floor(totalSeconds / (60 * 60));
-  totalSeconds %= (60 * 60);
-
-  const mins = Math.floor(totalSeconds / 60);
-
-  document.getElementById("countdown").innerText = `${months} months, ${days} days, ${hours} hours, ${mins} mins`;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 60000); // update every 60 seconds for accuracy
-
-
-    setInterval(updateCountdown, 1000);
-
-    function randomLoveMsg() {
-      const msgs = [
-        "I’m already yours.",
-        "Forever is waiting.",
-        "I want to grow old with you.",
-        "My heart beats your name every second."
-      ];
-      const pick = msgs[Math.floor(Math.random() * msgs.length)];
-      document.getElementById("randomMsg").innerText = pick;
+      alert("Your wish is safe with me — and InshaAllah, with Allah.");
+      candle.style.display = 'none';
+      journey.classList.add('visible');
     }
   </script>
 </body>
