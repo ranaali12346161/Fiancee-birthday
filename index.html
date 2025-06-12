@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday, My Love</title>
     <style>
+        /* Import fonts with fallbacks */
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Georgia&display=swap');
 
         body {
@@ -45,7 +46,7 @@
             font-size: 3.5rem;
             margin-bottom: 10px;
             color: #FF69B4;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: float 3s ease-in-out infinite;
         }
@@ -60,7 +61,7 @@
             font-size: 2.5rem;
             margin-bottom: 30px;
             color: #FFD700;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
@@ -92,7 +93,7 @@
             font-style: italic;
             font-size: 1.8rem;
             color: #FFD700;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
             margin-top: 30px;
             opacity: 0;
             animation: fadeIn 1s forwards;
@@ -153,7 +154,7 @@
             font-size: 1.6rem;
             color: #FFD700;
             animation: pulseText 2s infinite;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
             line-height: 1.8;
             padding: 20px;
             background-color: rgba(255, 105, 180, 0.25);
@@ -175,6 +176,9 @@
             display: block;
         }
     </style>
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <div class="container">
@@ -187,7 +191,7 @@
             May this year bring you all the happiness you bring to others. May our love continue to blossom like the most beautiful rose, growing more precious with each passing day. I promise to cherish you, adore you, and love you more with each sunrise we're blessed to share.
         </p>
 
-        <button class="kiss-btn" id="kissBtn">Let's Handshake cutee</button>
+        <button class="kiss-btn" id="kissBtn">Give me a handshake pyari</button>
         <div class="hidden-message" id="hiddenMessage">
             I love you Meri Jaan : Mera chilgoza<br>
             <span class="urdu-text">دیوانی سی : ماشاءاللہ</span>
