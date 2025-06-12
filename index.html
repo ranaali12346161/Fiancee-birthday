@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Birthday, My Love</title>
     <style>
         /* Import fonts with fallbacks */
@@ -18,16 +18,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
             background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .container {
+            width: 90%;
             max-width: 600px;
-            padding: 30px;
+            padding: 20px;
+            margin: 20px 0;
             background-color: rgba(46, 26, 71, 0.85);
             border-radius: 15px;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
@@ -43,12 +47,19 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
             color: #FF69B4;
-            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
+            font-family: 'Dancing Script', cursive, 'Georgia', serif;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: float 3s ease-in-out infinite;
+            word-wrap: break-word;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
         }
 
         @keyframes float {
@@ -58,23 +69,41 @@
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: #FFD700;
-            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
+            font-family: 'Dancing Script', cursive, 'Georgia', serif;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
         }
 
         p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
             text-align: left;
-            padding: 0 15px;
+            padding: 0 10px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 1s forwards;
             animation-delay: 0.5s;
+            word-wrap: break-word;
+        }
+
+        @media (min-width: 768px) {
+            p {
+                font-size: 1.3rem;
+                line-height: 1.8;
+                margin-bottom: 25px;
+                padding: 0 15px;
+            }
         }
 
         p:nth-child(3) {
@@ -91,13 +120,22 @@
 
         .signature {
             font-style: italic;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: #FFD700;
-            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
-            margin-top: 30px;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif;
+            margin-top: 20px;
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 2s;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .signature {
+                font-size: 1.8rem;
+                margin-top: 30px;
+            }
         }
 
         .heart {
@@ -105,9 +143,15 @@
             pointer-events: none;
             opacity: 0;
             animation: floatUp 3s linear forwards;
-            font-size: 60px;
+            font-size: 40px;
             filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.8));
             z-index: 100;
+        }
+
+        @media (min-width: 768px) {
+            .heart {
+                font-size: 60px;
+            }
         }
 
         @keyframes floatUp {
@@ -118,9 +162,15 @@
 
         .music-note {
             position: absolute;
-            font-size: 24px;
+            font-size: 18px;
             opacity: 0;
             animation: noteFloat 3s linear forwards;
+        }
+
+        @media (min-width: 768px) {
+            .music-note {
+                font-size: 24px;
+            }
         }
 
         @keyframes noteFloat {
@@ -132,17 +182,28 @@
             background-color: #FF69B4;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 50px;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 15px;
             transition: all 0.3s;
             font-family: 'Georgia', serif;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 300px;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .kiss-btn:hover {
+        @media (min-width: 768px) {
+            .kiss-btn {
+                padding: 12px 25px;
+                font-size: 1.3rem;
+                margin-top: 20px;
+            }
+        }
+
+        .kiss-btn:hover, .kiss-btn:active {
             transform: scale(1.1);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
             background-color: #FF1493;
@@ -150,16 +211,26 @@
 
         .hidden-message {
             display: none;
-            margin-top: 25px;
-            font-size: 1.6rem;
+            margin-top: 20px;
+            font-size: 1.3rem;
             color: #FFD700;
             animation: pulseText 2s infinite;
-            font-family: 'Dancing Script', cursive, 'Georgia', serif; /* Fallback chain */
-            line-height: 1.8;
-            padding: 20px;
+            font-family: 'Dancing Script', cursive, 'Georgia', serif;
+            line-height: 1.6;
+            padding: 15px;
             background-color: rgba(255, 105, 180, 0.25);
             border-radius: 12px;
             border: 1px solid #FF69B4;
+            word-wrap: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .hidden-message {
+                font-size: 1.6rem;
+                margin-top: 25px;
+                padding: 20px;
+                line-height: 1.8;
+            }
         }
 
         @keyframes pulseText {
@@ -171,9 +242,30 @@
         .urdu-text {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             direction: rtl;
-            font-size: 2rem;
-            margin-top: 15px;
+            font-size: 1.5rem;
+            margin-top: 10px;
             display: block;
+        }
+
+        @media (min-width: 768px) {
+            .urdu-text {
+                font-size: 2rem;
+                margin-top: 15px;
+            }
+        }
+
+        /* Touch optimizations */
+        button {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
     </style>
     <!-- Preconnect to Google Fonts for faster loading -->
@@ -209,10 +301,26 @@
                 }
             });
 
+            // Also respond to touch events for mobile
+            document.querySelector('.container').addEventListener('touchend', function(e) {
+                if (e.target.id !== 'kissBtn') {
+                    const touch = e.changedTouches[0];
+                    createHeart(touch.clientX, touch.clientY);
+                    e.preventDefault(); // Prevent mouse event from also firing
+                }
+            });
+
             // Kiss button functionality
-            document.getElementById('kissBtn').addEventListener('click', function() {
+            const kissBtn = document.getElementById('kissBtn');
+            kissBtn.addEventListener('click', handleKiss);
+            kissBtn.addEventListener('touchend', function(e) {
+                handleKiss();
+                e.preventDefault(); // Prevent mouse event from also firing
+            });
+
+            function handleKiss() {
                 // Create 3 big hearts in a cluster
-                const btnRect = this.getBoundingClientRect();
+                const btnRect = kissBtn.getBoundingClientRect();
                 const centerX = btnRect.left + btnRect.width/2;
                 const centerY = btnRect.top;
 
@@ -230,7 +338,7 @@
                 setTimeout(() => {
                     message.style.display = 'none';
                 }, 5000);
-            });
+            }
 
             // Create initial floating elements
             setInterval(() => {
@@ -247,7 +355,7 @@
                 const heart = document.createElement('div');
                 heart.className = 'heart';
                 heart.innerHTML = '❤️';
-                heart.style.left = (x - 30) + 'px'; // Center the heart
+                heart.style.left = (x - 30) + 'px';
                 heart.style.top = (y - 30) + 'px';
                 heart.style.animationDuration = (Math.random() * 1 + 2.5) + 's';
                 document.body.appendChild(heart);
@@ -271,6 +379,14 @@
                     note.remove();
                 }, 3000);
             }
+
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                // Small delay to allow screen to resize
+                setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 500);
+            });
         });
     </script>
 </body>
