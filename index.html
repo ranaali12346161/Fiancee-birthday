@@ -30,6 +30,11 @@
     .section {
       padding: 4rem 2rem;
       text-align: center;
+      display: none;
+    }
+
+    .active {
+      display: block;
     }
 
     h1, h2 {
@@ -51,14 +56,6 @@
 
     button:hover {
       box-shadow: 0 0 10px var(--rose-gold);
-    }
-
-    #welcome, #candle, #journey {
-      display: none;
-    }
-
-    .visible {
-      display: block;
     }
 
     .candle-container {
@@ -84,7 +81,7 @@
 </head>
 <body>
   <!-- Landing Page -->
-  <section id="landing" class="section">
+  <section id="landing" class="section active">
     <h1>Happy Birthday to the Light of My Life 💕</h1>
     <p>Every day with you is a gift… but today is yours.</p>
     <button onclick="startSurprise()">Click to Begin Your Birthday Surprise</button>
@@ -102,25 +99,24 @@
   <!-- Journey Section -->
   <section id="journey" class="section">
     <h2>Our Journey – The Love Timeline</h2>
-    <p>This is where timeline content will appear. (Add cards/photos later)</p>
+    <p>This is where timeline content will appear. (Cards/photos next!)</p>
   </section>
 
   <script>
-    const landing = document.getElementById('landing');
-    const candle = document.getElementById('candle');
-    const flame = document.getElementById('flame');
-    const journey = document.getElementById('journey');
+    function showSection(idToShow) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(idToShow).classList.add('active');
+    }
 
     function startSurprise() {
-      landing.style.display = 'none';
-      candle.classList.add('visible');
+      showSection('candle');
     }
 
     function blowCandle() {
-      flame.style.display = 'none';
-      alert("Your wish is safe with me — and InshaAllah, with Allah.");
-      candle.style.display = 'none';
-      journey.classList.add('visible');
+      document.getElementById('flame').style.display = 'none';
+      alert(\"Your wish is safe with me — and InshaAllah, with Allah.\");
+      showSection('journey');
     }
   </script>
 </body>
