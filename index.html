@@ -1,123 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Dancing+Script&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --rose-gold: #b76e79;
-      --blush-pink: #fadadd;
-      --ivory: #fdf8f5;
-      --text-dark: #3e3e3e;
-      --gold-glow: #ffe8b5;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Georgia&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #2E1A47;
+            color: #FFD700;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
 
-    body {
-      font-family: 'Lora', serif;
-      background-color: var(--ivory);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(46, 26, 71, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #FF69B4;
+            animation: pulse 2s infinite alternate;
+        }
 
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-      display: none;
-    }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+            100% { box-shadow: 0 0 50px rgba(255, 105, 180, 0.7); }
+        }
 
-    .active {
-      display: block;
-    }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #FF69B4;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
 
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--rose-gold);
-    }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
-    button {
-      background-color: var(--rose-gold);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 2rem;
-    }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #FFD700;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
 
-    button:hover {
-      box-shadow: 0 0 10px var(--rose-gold);
-    }
+        p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: left;
+            padding: 0 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.5s;
+        }
 
-    .candle-container {
-      position: relative;
-      width: 100px;
-      margin: 2rem auto;
-    }
+        p:nth-child(3) {
+            animation-delay: 1s;
+        }
 
-    .flame {
-      width: 10px;
-      height: 30px;
-      background: radial-gradient(ellipse at center, var(--gold-glow) 0%, orange 70%, transparent 100%);
-      margin: 0 auto;
-      animation: flicker 1s infinite alternate;
-      border-radius: 50%;
-    }
+        p:nth-child(4) {
+            animation-delay: 1.5s;
+        }
 
-    @keyframes flicker {
-      0% { transform: scaleY(1); opacity: 1; }
-      100% { transform: scaleY(0.8); opacity: 0.6; }
-    }
-  </style>
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .signature {
+            font-style: italic;
+            font-size: 1.8rem;
+            color: #FFD700;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 2s;
+        }
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            animation: floatUp 3s linear forwards;
+            font-size: 60px;
+            filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.8));
+            z-index: 100;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
+            50% { transform: translateY(-250px) rotate(180deg) scale(1.2); }
+            100% { transform: translateY(-500px) rotate(360deg) scale(0.5); opacity: 0; }
+        }
+
+        .music-note {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0;
+            animation: noteFloat 3s linear forwards;
+        }
+
+        @keyframes noteFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-300px) rotate(180deg); opacity: 0; }
+        }
+
+        .kiss-btn {
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .kiss-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            background-color: #FF1493;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 25px;
+            font-size: 1.6rem;
+            color: #FFD700;
+            animation: pulseText 2s infinite;
+            font-family: 'Dancing Script', cursive;
+            line-height: 1.8;
+            padding: 20px;
+            background-color: rgba(255, 105, 180, 0.25);
+            border-radius: 12px;
+            border: 1px solid #FF69B4;
+        }
+
+        @keyframes pulseText {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .urdu-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            font-size: 2rem;
+            margin-top: 15px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <!-- Landing Page -->
-  <section id="landing" class="section active">
-    <h1>Happy Birthday to the Light of My Life 💕</h1>
-    <p>Every day with you is a gift… but today is yours.</p>
-    <button onclick="startSurprise()">Click to Begin Your Birthday Surprise</button>
-  </section>
+    <div class="container">
+        <h1>Happy Birthday, My Love</h1>
+        <h2>Iram Shahzadi</h2>
+        <p>
+            On this special day, I want to remind you that you are the most beautiful woman I've ever known - not just in appearance, but in the depth of your heart, the kindness of your spirit, and the warmth of your love. You are my moon, my stars, and my entire universe.
+        </p>
+        <p>
+            May this year bring you all the happiness you bring to others. May our love continue to blossom like the most beautiful rose, growing more precious with each passing day. I promise to cherish you, adore you, and love you more with each sunrise we're blessed to share.
+        </p>
 
-  <!-- Candle Page -->
-  <section id="candle" class="section">
-    <h2>Before anything else… make a wish and blow the candle 🎂</h2>
-    <div class="candle-container">
-      <div id="flame" class="flame"></div>
+        <button class="kiss-btn" id="kissBtn">Let's Handshake cutee</button>
+        <div class="hidden-message" id="hiddenMessage">
+            I love you Meri Jaan : Mera chilgoza<br>
+            <span class="urdu-text">دیوانی سی : ماشاءاللہ</span>
+        </div>
+
+        <p class="signature">Forever and always yours,<br>Rana Muhammad Ali Jaffar</p>
     </div>
-    <button onclick="blowCandle()">Blow Candle</button>
-  </section>
 
-  <!-- Journey Section -->
-  <section id="journey" class="section">
-    <h2>Our Journey – The Love Timeline</h2>
-    <p>This is where timeline content will appear. (Cards/photos next!)</p>
-  </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating hearts when clicking the container
+            document.querySelector('.container').addEventListener('click', function(e) {
+                if (e.target.id !== 'kissBtn') {
+                    createHeart(e.clientX, e.clientY);
+                }
+            });
 
-  <script>
-    function showSection(idToShow) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(idToShow).classList.add('active');
-    }
+            // Kiss button functionality
+            document.getElementById('kissBtn').addEventListener('click', function() {
+                // Create 3 big hearts in a cluster
+                const btnRect = this.getBoundingClientRect();
+                const centerX = btnRect.left + btnRect.width/2;
+                const centerY = btnRect.top;
 
-    function startSurprise() {
-      showSection('candle');
-    }
+                for (let i = 0; i < 3; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const radius = Math.random() * 40 + 20;
+                    const x = centerX + Math.cos(angle) * radius;
+                    const y = centerY + Math.sin(angle) * radius;
+                    createHeart(x, y);
+                }
 
-    function blowCandle() {
-      document.getElementById('flame').style.display = 'none';
-      alert(\"Your wish is safe with me — and InshaAllah, with Allah.\");
-      showSection('journey');
-    }
-  </script>
+                // Show hidden message
+                const message = document.getElementById('hiddenMessage');
+                message.style.display = 'block';
+                setTimeout(() => {
+                    message.style.display = 'none';
+                }, 5000);
+            });
+
+            // Create initial floating elements
+            setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = window.innerHeight + 100;
+                if (Math.random() > 0.5) {
+                    createHeart(x, y);
+                } else {
+                    createMusicNote(x, y);
+                }
+            }, 800);
+
+            function createHeart(x, y) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = (x - 30) + 'px'; // Center the heart
+                heart.style.top = (y - 30) + 'px';
+                heart.style.animationDuration = (Math.random() * 1 + 2.5) + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+
+            function createMusicNote(x, y) {
+                const note = document.createElement('div');
+                note.className = 'music-note';
+                note.innerHTML = '🎵';
+                note.style.left = x + 'px';
+                note.style.top = y + 'px';
+                note.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                note.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(note);
+
+                setTimeout(() => {
+                    note.remove();
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
