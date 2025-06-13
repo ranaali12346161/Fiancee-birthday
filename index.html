@@ -347,6 +347,94 @@
             transform: rotateY(0deg);
         }
 
+        /* ===== NIKAH COUNTDOWN SECTION ===== */
+        .nikah-countdown {
+            padding: 5rem 2rem;
+            background-color: #fff9fb;
+            text-align: center;
+        }
+
+        .nikah-countdown h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #d23669;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .countdown-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 150px;
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d23669;
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .nikah-date {
+            font-size: 1.5rem;
+            color: #d23669;
+            font-style: italic;
+        }
+
+        /* ===== DUA SECTION ===== */
+        .dua-section {
+            padding: 5rem 2rem;
+            background-color: #fff0f5;
+            text-align: center;
+        }
+
+        .dua-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #d23669;
+            margin-bottom: 2rem;
+        }
+
+        .dua-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dua-arabic {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .dua-translation {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .dua-meaning {
+            font-size: 1rem;
+            color: #555;
+        }
+
         /* ===== GIFT SECTION ===== */
         .gift {
             padding: 5rem 2rem;
@@ -517,6 +605,11 @@
                 width: 120px;
                 height: 120px;
             }
+
+            .countdown-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -536,6 +629,8 @@
         <a href="#hero">My Sunshine</a>
         <a href="#memory-lane">Our Story</a>
         <a href="#reasons">Why You're Amazing</a>
+        <a href="#nikah-countdown">Our Nikah</a>
+        <a href="#dua-section">Blessings</a>
         <a href="#gift">Your Surprise</a>
         <a href="#final-message">Forever Yours</a>
     </nav>
@@ -643,7 +738,39 @@
             </div>
         </div>
     </section>
-   
+
+    <!-- Nikah Countdown Section -->
+    <section class="nikah-countdown" id="nikah-countdown">
+        <h2>Counting Down to Our Nikah</h2>
+        <div class="countdown-container" id="nikahCountdown">
+            <div class="countdown-box">
+                <div class="countdown-value" id="months">--</div>
+                <div class="countdown-label">Months</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value" id="days">--</div>
+                <div class="countdown-label">Days</div>
+            </div>
+        </div>
+        <p class="nikah-date">November 02, 2025</p>
+    </section>
+
+    <!-- Dua Section -->
+    <section class="dua-section" id="dua-section">
+        <h2>Blessings for Our Marriage</h2>
+        <div class="dua-container">
+            <div class="dua-arabic">
+                رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+            </div>
+            <div class="dua-translation">
+                "Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous."
+            </div>
+            <div class="dua-meaning">
+                This beautiful dua from Surah Al-Furqan (25:74) asks Allah for pious spouses and children who will be the coolness of our eyes, and to make us leaders of the righteous.
+            </div>
+        </div>
+    </section>
+
     <!-- Gift Section -->
     <section class="gift" id="gift">
         <h2>Your Special Gift </h2>
@@ -670,6 +797,7 @@
     <section class="final-message" id="final-message">
         <h2>Happy Birthday, My Everything</h2>
         <p>As we celebrate you today, I want you to know that every moment with you is a gift I treasure.</p>
+        <p>Mujhe boht khushi ho gi agar ap 5 waqt ki namaz prho gi to... Please...</p>
         <p>You are my today and all of my tomorrows.</p>
     </section>
 
@@ -718,7 +846,7 @@
         const giftBox = document.getElementById('giftBox');
         giftBox.addEventListener('click', () => {
             giftBox.classList.toggle('open');
-            document.querySelector('.gift-message').style.marginTop = '3rem'; 
+            document.querySelector('.gift-message').style.marginTop = '3rem';
         });
 
         // Create floating hearts
@@ -754,10 +882,33 @@
             // kissSound.play();
         }
 
+        // Nikah Countdown Timer
+        function updateNikahCountdown() {
+            const nikahDate = new Date('November 02, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = nikahDate - now;
+
+            if (distance < 0) {
+                document.getElementById('months').innerHTML = '0';
+                document.getElementById('days').innerHTML = '0';
+                return;
+            }
+
+            // Calculate months and days
+            const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30.44));
+            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('months').innerHTML = months;
+            document.getElementById('days').innerHTML = days;
+        }
+
         // Initial floating hearts
         window.addEventListener('load', () => {
             createHearts();
             setInterval(createHearts, 3000);
+            updateNikahCountdown();
+            // Update countdown every day
+            setInterval(updateNikahCountdown, 86400000);
         });
     </script>
 </body>
