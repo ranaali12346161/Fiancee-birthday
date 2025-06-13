@@ -643,76 +643,7 @@
             </div>
         </div>
     </section>
-    <!-- Nikkah date counter section -->
-<body style="margin:0;padding:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg, #fff5f5, #ffe8e8);font-family:'Amiri<div style="background:rgba(255,255,255,0.9);border-radius:20px;padding:40px;box-shadow:0 10px 30px rgba(214, 84, 84, 0.2);text-align:center;max-width:800px;width:90%;border:2px solid #d65555;">
-
-    <h1 style="font-family:'Dancing Script', cursive;font-size:3rem;color:#d65555;margin-bottom:10px;">Counting Down to Our Nikkah</h1>
-    <p style="font-size:1.5rem;color:#8b4513;margin-bottom:30px;">November 2, 2025 - إن شاء الله</p>
-
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin:30px 0;">
-        <!-- Months -->
-        <div style="background:linear-gradient(145deg, #fff, #ffebeb);border-radius:15px;padding:20px;min-width:100px;box-shadow:0 5px 15px rgba(214, 84, 84, 0.1);border:1px solid #ffb6b6;">
-            <div style="font-size:3rem;font-weight:bold;color:#d65555;line-height:1;" id="months">00</div>
-            <div style="font-size:1.3rem;margin-top:5px;color:#8b4513;">Months</div>
-        </div>
-
-        <!-- Days -->
-        <div style="background:linear-gradient(145deg, #fff, #ffebeb);border-radius:15px;padding:20px;min-width:100px;box-shadow:0 5px 15px rgba(214, 84, 84, 0.1);border:1px solid #ffb6b6;">
-            <div style="font-size:3rem;font-weight:bold;color:#d65555;line-height:1;" id="days">00</div>
-            <div style="font-size:1.3rem;margin-top:5px;color:#8b4513;">Days</div>
-        </div>
-
-        <!-- Hours -->
-        <div style="background:linear-gradient(145deg, #fff, #ffebeb);border-radius:15px;padding:20px;min-width:100px;box-shadow:0 5px 15px rgba(214, 84, 84, 0.1);border:1px solid #ffb6b6;">
-            <div style="font-size:3rem;font-weight:bold;color:#d65555;line-height:1;" id="hours">00</div>
-            <div style="font-size:1.3rem;margin-top:5px;color:#8b4513;">Hours</div>
-        </div>
-
-        <!-- Minutes -->
-        <div style="background:linear-gradient(145deg, #fff, #ffebeb);border-radius:15px;padding:20px;min-width:100px;box-shadow:0 5px 15px rgba(214, 84, 84, 0.1);border:1px solid #ffb6b6;">
-            <div style="font-size:3rem;font-weight:bold;color:#d65555;line-height:1;" id="minutes">00</div>
-            <div style="font-size:1.3rem;margin-top:5px;color:#8b4513;">Minutes</div>
-        </div>
-
-        <!-- Seconds -->
-        <div style="background:linear-gradient(145deg, #fff, #ffebeb);border-radius:15px;padding:20px;min-width:100px;box-shadow:0 5px 15px rgba(214, 84, 84, 0.1);border:1px solid #ffb6b6;">
-            <div style="font-size:3rem;font-weight:bold;color:#d65555;line-height:1;" id="seconds">00</div>
-            <div style="font-size:1.3rem;margin-top:5px;color:#8b4513;">Seconds</div>
-        </div>
-    </div>
-
-    <p style="font-size:1.8rem;color:#8b4513;margin-top:20px;font-style:italic;">"And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them." <br>(Quran 30:21)</p>
-</div>
-
-<script>
-    // Set the Nikkah date (November 2, 2025)
-    const nikkahDate = new Date('November 2, 2025 00:00:00').getTime();
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = nikkahDate - now;
-
-        // Calculate time units
-        const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Display results
-        document.getElementById('months').innerHTML = months;
-        document.getElementById('days').innerHTML = days;
-        document.getElementById('hours').innerHTML = Math.floor(hours);
-        document.getElementById('minutes').innerHTML = Math.floor(minutes);
-        document.getElementById('seconds').innerHTML = Math.floor(seconds);
-    }
-
-    // Update every second
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-</script>
-
-
+   
     <!-- Gift Section -->
     <section class="gift" id="gift">
         <h2>Your Special Gift </h2>
